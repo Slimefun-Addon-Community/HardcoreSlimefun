@@ -1,2 +1,7 @@
 options:
   auto-update: true
+
+hardcore-settings:
+  researches:
+    reset-on-death: false
+    failure-chance: 0

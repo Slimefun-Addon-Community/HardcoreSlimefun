@@ -1,20 +1,21 @@
-# Slimefun4 Addon
-This is an example Repository for a generic Slimefun4 Addon.
-In the top left is a button "Use this template", click this to create your own Addon for Slimefun4 using this basic template.
+# Hardcore - Slimefun
 
-## How to create your own addon.
-This is a template repository that you can use to create your own Slimefun4 Addon.<br>
-We have also written an extensive step-by-step tutorial which you can find here:<br>
-https://github.com/Slimefun/Slimefun4/wiki/Developer-Guide
+The point of this addon is to make Slimefun as hard as possible.<br>
+I don't even know why you would want to install this, be nice to your players.
 
-## Changing some important things
-Navigate to `src/main/java` and rename the package and the .java File to your liking.<br>
-Suggestion: "me.yourname.yourproject" (all lower case) and "ProjectName.java"<br>
-Example: "me.thebusybiscuit.cooladdon" and "CoolAddon.java"
 
-Navigate to `src/main/resources/plugin.yml` and change the "author" and "main" attributes.
-You may also want to change the description to something meaningful.
+Still here? Okay, let me show you how to make your server true hardcore.
+* [How to configure this plugin](#)
 
-Navigate to `pom.xml` and change the group id to "me.%Your name%" and change the artifact id to the name of your Project.
+## :headphones: Discord Server
+You can find Slimefun's community on Discord and connect with thousands of other members from the community.<br>
+The Slimefun Addon Community also has its own discord server for any of our projects too!
 
-After that you are good to go, you can now start developing your own Addon for Slimefun4.
+<p align="center">
+  <a href="https://discord.gg/slimefun">
+    <img src="https://discordapp.com/api/guilds/565557184348422174/widget.png?style=banner3" alt="Discord Invite"/>
+  </a>
+  <a href="https://discord.gg/V2cJR9ADFU">
+    <img src="https://discordapp.com/api/guilds/799294416196075572/widget.png?style=banner3" alt="Discord Invite"/>
+  </a>
+</p>
