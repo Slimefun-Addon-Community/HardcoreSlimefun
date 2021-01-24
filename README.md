@@ -5,7 +5,7 @@ I don't even know why you would want to install this, be nice to your players.
 
 
 Still here? Okay, let me show you how to make your server true hardcore.
-* [How to configure this plugin](#)
+* [How to configure this plugin](#wrench-setting-up-your-hardcore-server)
 
 ## :headphones: Discord Server
 You can find Slimefun's community on Discord and connect with thousands of other members from the community.<br>
