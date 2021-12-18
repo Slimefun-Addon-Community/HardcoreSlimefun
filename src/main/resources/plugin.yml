@@ -1,0 +1,8 @@
+name: HardcoreSlimefun
+description: Slimefun but impossibly hard to beat
+version: 1.0
+api-version: 1.14
+author: WalshyDev, TheBusyBiscuit
+website: https://github.com/Slimefun-Addon-Community/HardcoreSlimefun
+main: dev.walshy.hardcoreslimefun.HardcoreSlimefun
+depend: [Slimefun]
