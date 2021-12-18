@@ -1,5 +1,6 @@
 package dev.walshy.hardcoreslimefun;
 
+import dev.walshy.hardcoreslimefun.events.AndroidEvents;
 import dev.walshy.hardcoreslimefun.events.Events;
 import dev.walshy.hardcoreslimefun.utils.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
@@ -37,13 +38,14 @@ public class HardcoreSlimefun extends JavaPlugin {
             return;
         }
 
-        if (getConfig().getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            new GitHubBuildsUpdater(this, getFile(), "WalshyDev/HardcoreSF/main", "DEV").start();
+        if (getConfig().getBoolean("auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
+            new GitHubBuildsUpdater(this, getFile(), "Slimefun-Addon-Community/HardcoreSlimefun/main", "DEV").start();
         }
 
         new HardcoreMetrics(this).start();
 
         getServer().getPluginManager().registerEvents(new Events(), this);
+        getServer().getPluginManager().registerEvents(new AndroidEvents(), this);
     }
 
     @Override

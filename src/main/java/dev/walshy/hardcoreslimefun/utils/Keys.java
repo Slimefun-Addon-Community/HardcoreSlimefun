@@ -7,7 +7,6 @@ import javax.annotation.Nonnull;
 
 public class Keys {
 
-    public static final NamespacedKey MALFUNCTIONED = create("malfunctioned");
     public static final NamespacedKey MALFUNCTION_TIME_OUT = create("malfunction_time_out");
 
     private Keys() {}

@@ -15,6 +15,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.TimeUnit;
@@ -33,27 +34,28 @@ public class AndroidEvents implements Listener {
     }
 
     @EventHandler
-    public void onAndroidMine(@Nonnull AndroidFarmEvent event) {
+    public void onAndroidFarm(@Nonnull AndroidFarmEvent event) {
         if (Utils.chance(Config.INSTANCE.getMalfunctionChance())) {
             setMalfunctioned(event.getAndroid());
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.LOW)
     public void onAndroidInteract(@Nonnull PlayerInteractEvent event) {
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK
+        if (event.getHand() == EquipmentSlot.HAND
+            && event.getAction() == Action.RIGHT_CLICK_BLOCK
             && event.getClickedBlock() != null
             && !event.getClickedBlock().getType().isAir()
             && event.getClickedBlock().getState() instanceof Skull
         ) {
             final Skull skull = (Skull) event.getClickedBlock().getState();
 
-            if (PersistentDataAPI.hasBoolean(skull, Keys.MALFUNCTIONED)) {
+            final long timeout = PersistentDataAPI.getLong(skull, Keys.MALFUNCTION_TIME_OUT);
+            if (timeout != -1) {
                 if (PersistentDataAPI.getLong(skull, Keys.MALFUNCTION_TIME_OUT) <= System.currentTimeMillis()) {
                     event.setCancelled(true);
                     Utils.send(event.getPlayer(), Config.INSTANCE.getAndroidMalfunctioned());
                 } else {
-                    PersistentDataAPI.remove(skull, Keys.MALFUNCTIONED);
                     PersistentDataAPI.remove(skull, Keys.MALFUNCTION_TIME_OUT);
                 }
             }
@@ -70,7 +72,6 @@ public class AndroidEvents implements Listener {
         if (block.getState() instanceof Skull) {
             final Skull skull = (Skull) block.getState();
 
-            PersistentDataAPI.setBoolean(skull, Keys.MALFUNCTIONED, true);
             PersistentDataAPI.setLong(
                 skull,
                 Keys.MALFUNCTION_TIME_OUT,
