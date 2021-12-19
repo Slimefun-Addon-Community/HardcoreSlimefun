@@ -14,6 +14,8 @@ public class Utils {
 
     @Nullable
     public static <T> T randomValue(@Nonnull Set<T> set) {
+        if (set.isEmpty()) return null;
+
         final int rand = ThreadLocalRandom.current().nextInt(set.size());
 
         int i = 0;
@@ -26,6 +28,12 @@ public class Utils {
     }
 
     public static boolean chance(double chance) {
+        if (chance >= 100) {
+            return true;
+        } else if (chance <= 0) {
+            return false;
+        }
+
         return ThreadLocalRandom.current().nextDouble(100) + 1 <= chance;
     }
 
