@@ -49,6 +49,6 @@ android:
 messages:
   lost-random-research: '&cYou lost a random research!'
   lost-all-research: '&cOh noes... You lost all your research!'
-  research-failed: '&cResearch failed! You''l need to do that again :^)'
+  research-failed: '&cResearch failed! You''ll need to do that again :^)'
   android-malfunctioned: '&cYour Android has malfunctioned! Let it cool down and start it again'
 ```
