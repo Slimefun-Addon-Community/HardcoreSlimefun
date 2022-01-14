@@ -21,7 +21,7 @@ public class Events implements Listener {
     @EventHandler
     public void onDeath(@Nonnull PlayerDeathEvent event) {
         PlayerProfile.get(event.getEntity(), profile -> {
-            final boolean shouldResetAllResearches = Utils.chance(Config.INSTANCE.getResearchFailChance());
+            final boolean shouldResetAllResearches = Utils.chance(Config.INSTANCE.getResetAllResearchesOnDeath());
 
             // If we should reset all researches, do it
             if (shouldResetAllResearches) {
