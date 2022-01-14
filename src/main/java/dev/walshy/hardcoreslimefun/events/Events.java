@@ -36,7 +36,8 @@ public class Events implements Listener {
                 if (randomResearch == null) return;
 
                 profile.setResearched(randomResearch, false);
-                Utils.send(event.getEntity(), Config.INSTANCE.getLostRandomResearch());
+                String message = Config.INSTANCE.getLostRandomResearch().replace("%research%", randomResearch.getName(event.getEntity()));
+                Utils.send(event.getEntity(), message);
             }
         });
     }
