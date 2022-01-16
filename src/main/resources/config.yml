@@ -20,6 +20,7 @@ android:
   malfunction-duration: 30
 
 messages:
+  # %research% can be used to show the lost research's name
   lost-random-research: '&cYou lost a random research!'
   lost-all-research: '&cOh noes... You lost all your research!'
   research-failed: '&cResearch failed! You''ll need to do that again :^)'
