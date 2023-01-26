@@ -1,8 +1,9 @@
 # If the plugin should auto-update
 auto-update: true
 on-death:
-  # If true, a player will lose a random research every death
-  reset-random-research: true
+  # Chance to reset one player's researches on death. Percent scale of 0 to 100.
+  # 100 will always fire and 0 will never fire.
+  chance-to-reset-random-research: 70
   # Chance to reset all the player's researches on death. Percent scale of 0 to 100.
   # 100 will always fire and 0 will never fire.
   chance-to-reset-all-researches: 5
