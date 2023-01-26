@@ -11,7 +11,7 @@ public class Config {
     public static final Config INSTANCE = new Config();
 
     // on-death.reset-random-research
-    private boolean resetResearchOnDeath;
+    private double resetResearchOnDeath;
     // on-death.chance-to-reset-all-researches
     private double resetAllResearchesOnDeath;
 
@@ -36,7 +36,7 @@ public class Config {
     private String androidMalfunctioned;
 
     public void load(@Nonnull FileConfiguration config) {
-        resetResearchOnDeath = config.getBoolean("on-death.reset-random-research", true);
+        resetResearchOnDeath = getPercent(config,"on-death.resetResearchChance",70);
         resetAllResearchesOnDeath = getPercent(config, "on-death.chance-to-reset-all-researches", 5);
 
         researchFailChance = getPercent(config, "on-research.chance-of-failure", 10);
