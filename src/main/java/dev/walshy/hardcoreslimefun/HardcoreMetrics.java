@@ -21,7 +21,7 @@ class HardcoreMetrics {
     void start() {
         Metrics metrics = new Metrics(plugin, 13641);
 
-        addBooleanPie(metrics, "reset_random_research_on_death", Config.INSTANCE::isResetResearchOnDeath);
+        addPercentChart(metrics, "chance-to-reset-random-research",25,Config.INSTANCE::getResetResearchOnDeath);
         addPercentChart(metrics, "chance_to_reset_all_researches_on_death", 25,
             Config.INSTANCE::getResetAllResearchesOnDeath);
 
