@@ -35,7 +35,6 @@ public class Events implements Listener {
                 // If we should reset a random one, do it
                 final Research randomResearch = Utils.randomValue(profile.getResearches());
                 if (randomResearch == null) return;
-                
                 profile.setResearched(randomResearch, false);
                 String message = Config.INSTANCE.getLostRandomResearch().replace("%research%", randomResearch.getName(event.getEntity()));
                 Utils.send(event.getEntity(), message);
