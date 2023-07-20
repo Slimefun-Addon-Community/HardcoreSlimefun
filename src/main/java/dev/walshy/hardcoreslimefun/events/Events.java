@@ -22,6 +22,7 @@ public class Events implements Listener {
     public void onDeath(@Nonnull PlayerDeathEvent event) {
         PlayerProfile.get(event.getEntity(), profile -> {
             final boolean shouldResetAllResearches = Utils.chance(Config.INSTANCE.getResetAllResearchesOnDeath());
+            final boolean shouldResetOneResearch = Utils.chance(Config.INSTANCE.getResetResearchOnDeath());
 
             // If we should reset all researches, do it
             if (shouldResetAllResearches) {
@@ -30,11 +31,10 @@ public class Events implements Listener {
                 }
                 Utils.send(event.getEntity(), Config.INSTANCE.getLostAllResearch());
 
-            } else if (Config.INSTANCE.isResetResearchOnDeath()) {
+            } else if (shouldResetOneResearch) {
                 // If we should reset a random one, do it
                 final Research randomResearch = Utils.randomValue(profile.getResearches());
                 if (randomResearch == null) return;
-
                 profile.setResearched(randomResearch, false);
                 String message = Config.INSTANCE.getLostRandomResearch().replace("%research%", randomResearch.getName(event.getEntity()));
                 Utils.send(event.getEntity(), message);
